@@ -11,22 +11,15 @@ import java.sql.*;
  * @author Rithick
  */
 public class ConnectionProvider {
-    public static void main(String[] args) {
+    public static Connection getConnection() {
         try{
-            String query = "SELECT * FROM questions";
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/qa_db","root","Qwertyup123");
-            Statement st = conn.createStatement();
-            ResultSet rs = st.executeQuery(query);
-            while(rs.next()){
-                String name = rs.getString(2);
-                String question = rs.getString(3);
-                System.out.println(name+"  "+question);
-            }
-            conn.close();
+            return conn;
             
         }catch(Throwable th){
             th.printStackTrace();
+            return null;
         }
     }
 }

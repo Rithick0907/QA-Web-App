@@ -1,0 +1,13 @@
+.question-list{
+    display:flex;
+    justify-content: center;
+}
+.question-list table{
+    flex-basis:80%;
+}
+table,th, tr,td{
+    border:1px solid gray;
+    border-collapse:collapse;
+    padding:0.5rem;
+    text-align: center;
+}
