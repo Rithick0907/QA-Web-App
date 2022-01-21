@@ -13,6 +13,13 @@
         <link rel="stylesheet" href="../css/homepage.css" />
     </head>
     <body>
+        <div class="add-question">
+            <form action="addQuestionAction.jsp">
+                <input name="name" placeholder="Name" type="text" />
+                <input name="question" placeholder="Enter Your Question" type="text" />
+                <button type="submit">Add Question</button>
+            </form>
+        </div>
         <div class="question-list">
         <table>
             <thead>

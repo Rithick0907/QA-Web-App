@@ -1,3 +1,8 @@
+.add-question{
+    display:flex;
+    margin:2rem auto;
+    justify-content: center;
+}
 .question-list{
     display:flex;
     justify-content: center;
