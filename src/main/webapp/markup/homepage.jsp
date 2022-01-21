@@ -48,5 +48,9 @@
             </tbody>
         </table>
         </div>
+        <div class="navigator">
+            <button class="btn btn--primary"><< Previous</button>
+            <button class="btn btn--secondary">Next >></button>
+        </div>
     </body>
 </html>

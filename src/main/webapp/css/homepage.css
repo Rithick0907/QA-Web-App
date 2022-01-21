@@ -24,6 +24,22 @@ input{
 .btn--primary:hover {
   background-color: #f14e30;
 }
+.btn--secondary {
+  color: white;
+  background-color: dodgerblue;
+}
+
+.btn--secondary:hover {
+  background-color: #0782fa;
+}
+.btn--primary {
+  color: white;
+  background-color: tomato;
+}
+
+.btn--primary:hover {
+  background-color: #f14e30;
+}
 .question-list{
     display:flex;
     justify-content: center;
@@ -36,4 +52,10 @@ table,th, tr,td{
     border-collapse:collapse;
     padding:0.5rem;
     text-align: center;
+}
+.navigator{
+    margin-block:2rem;
+    display:flex;
+    gap:1rem;
+    justify-content: center;
 }
