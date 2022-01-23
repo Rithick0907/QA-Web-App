@@ -14,6 +14,12 @@ public class Answer {
     private String name;
     private String answer;
 
+    public Answer(int id, int questionId,String name,String answer){
+        this.id = id;
+        this.questionId = questionId;
+        this.name = name;
+        this.answer = answer;
+    }
     public int getId() {
         return id;
     }

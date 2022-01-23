@@ -50,3 +50,22 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this t
     padding:1rem;
     justify-content: space-around;
 }
+.answer-list{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-block:2rem;
+}
+table,th, tr,td{
+    border:1px solid gray;
+    border-collapse:collapse;
+    padding:0.5rem;
+    text-align: center;
+}
+.answer-list table{
+    width:80%;
+}
+.answer-list td{
+    padding-block:1rem;
+}
