@@ -59,3 +59,6 @@ table,th, tr,td{
     gap:1rem;
     justify-content: center;
 }
+.navigator .active{
+    text-decoration: none;
+}

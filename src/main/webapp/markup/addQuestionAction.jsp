@@ -13,5 +13,5 @@
     ps.setString(1,name);
     ps.setString(2,question);
     ps.executeUpdate();
-    response.sendRedirect("homepage.jsp?msg=added");
+    response.sendRedirect("index.jsp");
 %>

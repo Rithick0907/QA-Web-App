@@ -3,7 +3,9 @@
     Created on : 21-Jan-2022, 2:37:48 pm
     Author     : Rithick
 --%>
+<%@page import="java.util.List"%>
 <%@page import="java.sql.*" %>
+<%@page import="com.qa_app.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -13,8 +15,12 @@
         <link rel="stylesheet" href="../css/homepage.css" />
     </head>
     <body>
+        <%
+            int pageNo = Integer.parseInt(request.getParameter("page"));
+            int totalPages = Integer.parseInt(request.getParameter("totalPages"));
+        %>
         <div class="add-question">
-            <form action="addQuestionAction.jsp">
+            <form action="addQuestionAction.jsp" method="post">
                 <input name="name" placeholder="Name" type="text" />
                 <input name="question" placeholder="Enter Your Question" type="text" />
                 <button class="btn btn--primary" type="submit">Add Question</button>
@@ -28,29 +34,29 @@
             </thead>
             <tbody>
                 <%
-                    try{
-                        Class.forName("com.mysql.cj.jdbc.Driver");
-                        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/qa_db","root","Qwertyup123");
-                        Statement stmt = conn.createStatement();
-                        ResultSet rs = stmt.executeQuery("SELECT * FROM questions");
-                        while(rs.next()){
+                    List<Question> questionsList = QuestionDao.getQuestions(pageNo);
+                    for(Question question : questionsList){
                 %>
                 <tr>
-                    <td><%=rs.getString(2)%></td>
-                    <td><a href=""><%=rs.getString(3)%></a></td>
+                    <td><%=question.name%></td>
+                    <td><a href=""><%=question.question%></a></td>
                 </tr>
                 <%
-                        }
-                    }catch(Exception ex){
-                        ex.printStackTrace();
                     }
                 %>
             </tbody>
         </table>
         </div>
         <div class="navigator">
-            <button class="btn btn--primary"><< Previous</button>
-            <button class="btn btn--secondary">Next >></button>
+            <%
+                for(int i = 1; i <= totalPages;i++){
+                    String paginatedLink = "homepage.jsp?page="+i+"&totalPages="+totalPages;
+                    if(i == pageNo)
+                        out.println("<a class='active' href="+paginatedLink+">"+i+"</a>");
+                    else
+                        out.println("<a href="+paginatedLink+">"+i+"</a>");
+                }
+            %>
         </div>
     </body>
 </html>
