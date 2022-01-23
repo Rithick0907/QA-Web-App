@@ -52,6 +52,10 @@
         <hr>
         <div class="answer-list">
             <h2>Answers</h2>
+            <%
+                List<Answer> answers = AnswersDao.getAnswer(questionId);
+                if(answers.size() > 0){
+            %>
             <table>
                 <thead>
                 <th>Name</th>
@@ -60,7 +64,6 @@
                 </thead>
                 <tbody>
                     <%
-                        List<Answer> answers = AnswersDao.getAnswer(questionId);
                         for(Answer answer : answers){
                         String editURI = "editAnswer.jsp?answerId=" + answer.getId() + "&questionId=" + questionId;
                     %>
@@ -76,6 +79,11 @@
                     %>
                 </tbody>
             </table>
+            <%
+                }else{
+                    out.println("<p style='font-size:1.5rem'>No Answers added Yet</p>");
+                }
+            %>
         </div>
     </body>
 </html>
