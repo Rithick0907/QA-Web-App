@@ -78,11 +78,11 @@ public class QuestionDao {
        conn.close();
    }
    public static void deleteQuestionById(int questionId) throws Exception{
-       String query = "DELETE FROM QUESTIONS WHERE ID = " + questionId;
+       String query = "DELETE FROM QUESTIONS WHERE ID = ?";
        Connection conn = ConnectionProvider.getConnection();
-       Statement stmt = conn.createStatement();
-       ResultSet rs = stmt.executeQuery(query);
-       rs.close();
-       conn.close();
+       PreparedStatement ps = conn.prepareStatement(query);
+       ps.setInt(1, questionId);
+       ps.executeUpdate();
+       conn.close();       
    }
 }

@@ -61,12 +61,20 @@ public class AnswersDao {
        conn.close();
    }
    public static void updateResponded(int answerId,String name) throws Exception{
-       String query = "UPDATE QUESTIONS SET name = ? WHERE id = ?";
+       String query = "UPDATE answers SET NAME = ? WHERE ID = ?";
        Connection conn = ConnectionProvider.getConnection();
-       PreparedStatement ps = conn.prepareStatement("UPDATE answers SET NAME = ? WHERE ID = ?");
+       PreparedStatement ps = conn.prepareStatement(query);
        ps.setString(1,name);
        ps.setInt(2, answerId);
        ps.executeUpdate();
        conn.close();
+   }
+   public static void deleteAnswerById(int answerId) throws Exception{
+       String query = "DELETE FROM ANSWERS WHERE ID = ?";
+       Connection conn = ConnectionProvider.getConnection();
+       PreparedStatement ps = conn.prepareStatement(query);
+       ps.setInt(1, answerId);
+       ps.executeUpdate();
+       conn.close();       
    }
 }

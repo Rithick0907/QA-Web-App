@@ -17,11 +17,15 @@
         <%
             int answerId = Integer.parseInt(request.getParameter("answerId"));
             int questionId = Integer.parseInt(request.getParameter("questionId"));
-            Answer answer = AnswersDao.getAnswerById(answerId);            
+            Answer answer = AnswersDao.getAnswerById(answerId);    
+            String redirectOnDelete = "deleteAnswerAction.jsp?answerId=" + answerId + "&qId=" + questionId;
         %>
         <div class="answer-container">
             <p class="answer quote"><%=answer.getAnswer()%></p>
             <span class="responder"><%=answer.getName()%></span>
+        </div>
+        <div class="btn-center">
+            <a class="btn btn--primary" href=<%= redirectOnDelete%>>Delete Answer</a>
         </div>
         <form class="btn-center" action="updateResponder.jsp" method="post">
             <input type="hidden" name="answerId" value=<%=answerId%> />
