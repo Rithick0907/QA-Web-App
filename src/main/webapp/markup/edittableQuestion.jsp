@@ -36,7 +36,7 @@
         </form>
         <form class="btn-center" action="updateQuestion.jsp" method="post">
             <input type="hidden" name="questionId" value=<%=questionId%> />
-            <input type="text" name="name" placeholder="Question" required />
+            <input type="text" name="question" placeholder="Question" required />
             <button class="btn btn--primary btn-group">
                 Edit Question
             </button>
@@ -62,7 +62,7 @@
                     <%
                         List<Answer> answers = AnswersDao.getAnswer(questionId);
                         for(Answer answer : answers){
-                        String editURI = "editAnswers.jsp?answerId=" + answer.getId();
+                        String editURI = "editAnswer.jsp?answerId=" + answer.getId() + "&questionId=" + questionId;
                     %>
                     <tr>
                         <td><%= answer.getName()%></td>

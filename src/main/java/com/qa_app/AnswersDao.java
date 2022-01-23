@@ -16,6 +16,18 @@ import java.util.List;
  * @author Rithick
  */
 public class AnswersDao {
+    public static Answer getAnswerById(int id) throws Exception{
+        String query = "SELECT * FROM answers WHERE id = " + id;
+        Connection conn = ConnectionProvider.getConnection();
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery(query);
+        rs.next();
+        String name = rs.getString("name");
+        String answer = rs.getString("answer");
+        int questionId = Integer.parseInt(rs.getString("question_id"));
+        conn.close();
+        return new Answer(id,questionId,name,answer);
+    }
     public static List<Answer> getAnswer(int questionId) throws Exception{
         List<Answer> answers = new ArrayList<Answer>();
         Connection conn = ConnectionProvider.getConnection();
@@ -24,8 +36,8 @@ public class AnswersDao {
        while(rs.next()){
            int id = Integer.parseInt(rs.getString("id"));
            String name = rs.getString("name");
-           String question = rs.getString("answer");
-           answers.add(new Answer(id,questionId,name,question));
+           String answer = rs.getString("answer");
+           answers.add(new Answer(id,questionId,name,answer));
        }
         return answers;
     }
