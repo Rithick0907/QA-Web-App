@@ -51,4 +51,22 @@ public class AnswersDao {
         ps.executeUpdate();
         conn.close();
     }
+    public static void updateAnswer(int answerId,String answer) throws Exception{
+       String query = "UPDATE ANSWERS SET question = ? WHERE id = ?";
+       Connection conn = ConnectionProvider.getConnection();
+       PreparedStatement ps = conn.prepareStatement("UPDATE answers SET ANSWER = ? WHERE ID = ?");
+       ps.setString(1,answer);
+       ps.setInt(2, answerId);
+       ps.executeUpdate();
+       conn.close();
+   }
+   public static void updateResponded(int answerId,String name) throws Exception{
+       String query = "UPDATE QUESTIONS SET name = ? WHERE id = ?";
+       Connection conn = ConnectionProvider.getConnection();
+       PreparedStatement ps = conn.prepareStatement("UPDATE answers SET NAME = ? WHERE ID = ?");
+       ps.setString(1,name);
+       ps.setInt(2, answerId);
+       ps.executeUpdate();
+       conn.close();
+   }
 }

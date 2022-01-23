@@ -5,15 +5,11 @@
 --%>
 
 <%@page import="java.sql.*"%>
+<%@page import="com.qa_app.*"%>
 <%
-    String answer = request.getParameter("answer");
     int questionId = Integer.parseInt(request.getParameter("questionId"));
+    String answer = request.getParameter("answer");
     int answerId = Integer.parseInt(request.getParameter("answerId"));
-    Class.forName("com.mysql.cj.jdbc.Driver");
-    Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/qa_db","root","Qwertyup123");
-    PreparedStatement ps = conn.prepareStatement("UPDATE answers SET ANSWER = ? WHERE ID = ?");
-    ps.setString(1,answer);
-    ps.setInt(2, answerId);
-    ps.executeUpdate();
+    AnswersDao.updateAnswer(answerId, answer);
     response.sendRedirect("edittableQuestion.jsp?qId="+questionId);
 %>
