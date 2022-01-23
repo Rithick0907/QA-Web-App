@@ -11,6 +11,7 @@ input{
 .btn {
   border: 0;
   cursor: pointer;
+  text-decoration: none;
   outline: none;
   padding: 0.75rem;
   font-weight: bold;
@@ -20,7 +21,6 @@ input{
   color: white;
   background-color: tomato;
 }
-
 .btn--primary:hover {
   background-color: #f14e30;
 }

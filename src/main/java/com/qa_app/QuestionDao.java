@@ -22,6 +22,16 @@ public class QuestionDao {
            count = Integer.parseInt(rs.getString(1));
        return count;
     }
+    public static Question getQuestionById(int id) throws Exception{
+        String query = "SELECT * FROM questions WHERE id = " + id;
+        Connection conn = ConnectionProvider.getConnection();
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery(query);
+        rs.next();
+        String name = rs.getString("name");
+        String question = rs.getString("question");
+        return new Question(id,name,question);
+    }
    public static List<Question> getQuestions(int pageNo) throws Exception{
        int startRecord = Math.abs((pageNo * 10) - 10);
        List<Question> questionsList = new ArrayList<Question>();

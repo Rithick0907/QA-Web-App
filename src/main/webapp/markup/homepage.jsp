@@ -36,10 +36,11 @@
                 <%
                     List<Question> questionsList = QuestionDao.getQuestions(pageNo);
                     for(Question question : questionsList){
+                    String questionURI = "edittableQuestion.jsp?qId="+question.id;
                 %>
                 <tr>
                     <td><%=question.name%></td>
-                    <td><a href=""><%=question.question%></a></td>
+                    <td><a href=<%=questionURI%>><%=question.question%></a></td>
                 </tr>
                 <%
                     }
