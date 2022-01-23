@@ -50,6 +50,15 @@ public class QuestionDao {
        conn.close();
        return questionsList;
    }
+       public static void addQuestion(String name,String question) throws Exception{
+        String query = "INSERT INTO Questions(Name, Question) VALUES(?,?)";
+        Connection conn = ConnectionProvider.getConnection();
+        PreparedStatement ps = conn.prepareStatement(query);
+        ps.setString(1,name);
+        ps.setString(2,question);
+        ps.executeUpdate();
+        conn.close();
+    }
    public static void updateQuestion(int questionId,String question) throws Exception{
        String query = "UPDATE QUESTIONS SET question = ? WHERE id = ?";
        Connection conn = ConnectionProvider.getConnection();
