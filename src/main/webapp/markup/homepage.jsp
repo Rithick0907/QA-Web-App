@@ -21,8 +21,8 @@
         %>
         <div class="add-question">
             <form action="addQuestionAction.jsp" method="post">
-                <input name="name" placeholder="Name" type="text" />
-                <input name="question" placeholder="Enter Your Question" type="text" />
+                <input name="name" placeholder="Name" type="text" required/>
+                <input name="question" placeholder="Enter Your Question" type="text" required/>
                 <button class="btn btn--primary" type="submit">Add Question</button>
             </form>
         </div>
