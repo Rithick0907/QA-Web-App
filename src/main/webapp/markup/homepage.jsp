@@ -29,7 +29,7 @@
         <div class="question-list">
         <table>
             <thead>
-                <th>Name</th>
+                <th>Questioned By</th>
                 <th>Questions</th>
             </thead>
             <tbody>

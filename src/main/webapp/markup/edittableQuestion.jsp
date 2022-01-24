@@ -45,7 +45,7 @@
             <input type="hidden" name="questionId" value=<%=questionId%> />
             <input type="text" name="name" placeholder="Name" required />
             <input type="text" name="answer" placeholder="Answer" required />
-            <button class="btn btn--primary btn-group">
+            <button class="btn btn--secondary btn-group">
                 Add Answer
             </button>
         </form>
@@ -59,7 +59,7 @@
             <table>
                 <thead>
                 <th>Name</th>
-                <th>Answers</th>
+                <th>Answered By</th>
                 <th></th>
                 </thead>
                 <tbody>

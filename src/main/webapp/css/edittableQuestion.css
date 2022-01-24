@@ -44,11 +44,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this t
   color: white;
   background-color: tomato;
 }
-
+.btn--secondary {
+  color: white;
+  background-color: #4BB543;
+}
 .btn-center{
     display: flex;
     padding:1rem;
     justify-content: space-around;
+    border-top:1px solid lightgray;
 }
 .answer-list{
     display:flex;
