@@ -18,6 +18,7 @@
         <%
             int questionId = Integer.parseInt(request.getParameter("qId"));
             Question ques = QuestionDao.getQuestionById(questionId);
+            String prefilledQuestion = ques.question;
             String redirectOnDelete = "deleteQuestionAction.jsp?qId=" + questionId;
         %>
         <div class="question-container">
@@ -27,16 +28,10 @@
         <div class="btn-center">
             <a class="btn btn--primary" href=<%= redirectOnDelete%>>Delete Question</a>
         </div>
-        <form class="btn-center" action="updateQuestioner.jsp" method="post">
+        <form class="btn-center" action="editQuestionAction.jsp" method="post">
             <input type="hidden" name="questionId" value=<%=questionId%> />
-            <input type="text" name="name" placeholder="Name" required />
-            <button class="btn btn--primary btn-group">
-                Edit Questioner
-            </button>
-        </form>
-        <form class="btn-center" action="updateQuestion.jsp" method="post">
-            <input type="hidden" name="questionId" value=<%=questionId%> />
-            <input type="text" name="question" placeholder="Question" required />
+            <input type="text" name="questioner" value=<%= ques.name%> required />
+            <input type="text" name="question" value=<%= prefilledQuestion%> required />
             <button class="btn btn--primary btn-group">
                 Edit Question
             </button>

@@ -27,18 +27,11 @@
         <div class="btn-center">
             <a class="btn btn--primary" href=<%= redirectOnDelete%>>Delete Answer</a>
         </div>
-        <form class="btn-center" action="updateResponder.jsp" method="post">
+        <form class="btn-center" action="editAnswerAction.jsp" method="post">
             <input type="hidden" name="answerId" value=<%=answerId%> />
             <input type="hidden" name="questionId" value=<%=questionId%> />
-            <input type="text" name="name" placeholder="Name" required />
-            <button class="btn btn--primary btn-group">
-                Edit Responder
-            </button>
-        </form>
-        <form class="btn-center" action="updateAnswer.jsp" method="post">
-            <input type="hidden" name="answerId" value=<%=answerId%> />
-            <input type="hidden" name="questionId" value=<%=questionId%> />
-            <input type="text" name="answer" placeholder="Answer" required />
+            <input type="text" name="name" placeholder="Name" value=<%= answer.getName()%> required />
+            <input type="text" name="answer" placeholder="Answer" value=<%= answer.getAnswer()%> required />
             <button class="btn btn--primary btn-group">
                 Edit Answer
             </button>

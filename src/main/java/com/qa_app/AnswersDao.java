@@ -51,22 +51,14 @@ public class AnswersDao {
         ps.executeUpdate();
         conn.close();
     }
-    public static void updateAnswer(int answerId,String answer) throws Exception{
-       String query = "UPDATE ANSWERS SET question = ? WHERE id = ?";
-       Connection conn = ConnectionProvider.getConnection();
-       PreparedStatement ps = conn.prepareStatement("UPDATE answers SET ANSWER = ? WHERE ID = ?");
-       ps.setString(1,answer);
-       ps.setInt(2, answerId);
-       ps.executeUpdate();
-       conn.close();
-   }
-   public static void updateResponded(int answerId,String name) throws Exception{
-       String query = "UPDATE answers SET NAME = ? WHERE ID = ?";
+    public static void editAnswer(int answerId,String answer,String responder) throws Exception{
+       String query = "UPDATE ANSWERS SET name = ?, answer = ? WHERE id = ?";
        Connection conn = ConnectionProvider.getConnection();
        PreparedStatement ps = conn.prepareStatement(query);
-       ps.setString(1,name);
-       ps.setInt(2, answerId);
-       ps.executeUpdate();
+       ps.setString(1, responder);
+       ps.setString(2,answer);
+       ps.setInt(3,answerId);
+       ps.execute();
        conn.close();
    }
    public static void deleteAnswerById(int answerId) throws Exception{

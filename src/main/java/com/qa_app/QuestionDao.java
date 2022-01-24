@@ -59,24 +59,16 @@ public class QuestionDao {
         ps.executeUpdate();
         conn.close();
     }
-   public static void updateQuestion(int questionId,String question) throws Exception{
-       String query = "UPDATE QUESTIONS SET question = ? WHERE id = ?";
+    public static void editQuestion(int questionId,String question,String questioner) throws Exception{
+       String query = "UPDATE QUESTIONS SET name = ?, question = ? WHERE id = ?";
        Connection conn = ConnectionProvider.getConnection();
        PreparedStatement ps = conn.prepareStatement(query);
-       ps.setString(1, question);
-       ps.setInt(2,questionId);
+       ps.setString(1, questioner);
+       ps.setString(2,question);
+       ps.setInt(3,questionId);
        ps.execute();
        conn.close();
-   }
-   public static void updateQuestioner(int questionId,String name) throws Exception{
-       String query = "UPDATE QUESTIONS SET name = ? WHERE id = ?";
-       Connection conn = ConnectionProvider.getConnection();
-       PreparedStatement ps = conn.prepareStatement(query);
-       ps.setString(1, name);
-       ps.setInt(2,questionId);
-       ps.execute();
-       conn.close();
-   }
+    }
    public static void deleteQuestionById(int questionId) throws Exception{
        String query = "DELETE FROM QUESTIONS WHERE ID = ?";
        Connection conn = ConnectionProvider.getConnection();
