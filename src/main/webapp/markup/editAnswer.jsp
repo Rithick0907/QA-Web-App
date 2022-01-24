@@ -30,8 +30,8 @@
         <form class="btn-center" action="editAnswerAction.jsp" method="post">
             <input type="hidden" name="answerId" value=<%=answerId%> />
             <input type="hidden" name="questionId" value=<%=questionId%> />
-            <input type="text" name="name" placeholder="Name" value=<%= answer.getName()%> required />
-            <input type="text" name="answer" placeholder="Answer" value=<%= answer.getAnswer()%> required />
+            <input type="text" name="name" placeholder="Name" value="<%= answer.getName()%>" required />
+            <input type="text" name="answer" placeholder="Answer" value="<%= answer.getAnswer()%>" required />
             <button class="btn btn--primary btn-group">
                 Edit Answer
             </button>

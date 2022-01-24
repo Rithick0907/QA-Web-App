@@ -30,8 +30,8 @@
         </div>
         <form class="btn-center" action="editQuestionAction.jsp" method="post">
             <input type="hidden" name="questionId" value=<%=questionId%> />
-            <input type="text" name="questioner" value=<%= ques.name%> required />
-            <input type="text" name="question" value=<%= prefilledQuestion%> required />
+            <input type="text" name="questioner" value="<%= ques.name%>" required />
+            <input type="text" name="question" value="<%= prefilledQuestion%>" required />
             <button class="btn btn--primary btn-group">
                 Edit Question
             </button>
