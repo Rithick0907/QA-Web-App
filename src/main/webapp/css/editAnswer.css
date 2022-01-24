@@ -44,7 +44,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this t
   color: white;
   background-color: tomato;
 }
-
+.btn--primary:hover {
+  background-color: #f14e30;
+}
 .btn-center{
     display: flex;
     padding:1rem;

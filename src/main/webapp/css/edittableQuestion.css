@@ -44,9 +44,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this t
   color: white;
   background-color: tomato;
 }
+.btn--primary:hover {
+  background-color: #f14e30;
+}
 .btn--secondary {
   color: white;
   background-color: #4BB543;
+}
+.btn--secondary:hover {
+  background-color: #1c6d16;
 }
 .btn-center{
     display: flex;
