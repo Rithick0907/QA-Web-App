@@ -49,4 +49,5 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this t
     display: flex;
     padding:1rem;
     justify-content: space-around;
+    border-top:1px solid lightgray;
 }

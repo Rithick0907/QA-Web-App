@@ -30,7 +30,7 @@
         <table>
             <thead>
                 <th>Questioned By</th>
-                <th>Questions</th>
+                <th>Question</th>
             </thead>
             <tbody>
                 <%

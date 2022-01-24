@@ -58,8 +58,8 @@
             %>
             <table>
                 <thead>
-                <th>Name</th>
                 <th>Answered By</th>
+                <th>Answer</th>
                 <th></th>
                 </thead>
                 <tbody>
